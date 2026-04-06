@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Job007</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 900: '#0f172a', 800: '#1e293b' },
+            gold: { 400: '#d4a853' }
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #0f172a; color: #e2e8f0; }
+    h2 { margin-top: 2rem; margin-bottom: 0.75rem; }
+    p, li { line-height: 1.7; }
+  </style>
+</head>
+<body>
+  <nav class="border-b border-white/5 sticky top-0 z-50 bg-navy-900/95 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-1">
+        <span class="font-display text-xl font-bold text-white">Job</span><span class="font-mono text-xl font-bold text-gold-400">007</span>
+      </a>
+      <a href="/" class="text-sm text-slate-400 hover:text-white transition-colors">Back to Home</a>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <h1 class="font-display text-4xl font-bold text-white mb-2">Privacy Policy</h1>
+    <p class="text-sm text-slate-500 font-mono mb-12">Last updated: April 6, 2026</p>
+
+    <div class="space-y-6 text-slate-300 text-[15px]">
+
+      <h2 class="text-xl font-bold text-white">1. Overview</h2>
+      <p>Job007 ("we", "our", "us") provides an AI-powered job search automation platform consisting of a desktop application, Chrome browser extension, and cloud backend. This privacy policy explains what data we collect, how we use it, and your rights.</p>
+
+      <h2 class="text-xl font-bold text-white">2. Data We Collect</h2>
+
+      <h3 class="text-lg font-semibold text-slate-200 mt-4">Account Information</h3>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Email address, full name (provided at registration)</li>
+        <li>Authentication credentials (passwords are hashed, never stored in plaintext)</li>
+      </ul>
+
+      <h3 class="text-lg font-semibold text-slate-200 mt-4">Profile & Career Data</h3>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Resume content and cover letters you upload</li>
+        <li>Target job titles, preferred locations, salary expectations</li>
+        <li>Career history and professional preferences</li>
+        <li>Application form answers and preferences</li>
+      </ul>
+
+      <h3 class="text-lg font-semibold text-slate-200 mt-4">Job Search Data</h3>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Job listings discovered from LinkedIn, Indeed, and other job boards</li>
+        <li>AI-generated fit scores and recommendations</li>
+        <li>Application status and tracking information</li>
+      </ul>
+
+      <h3 class="text-lg font-semibold text-slate-200 mt-4">Chrome Extension Data</h3>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Application form fields on job board websites (read to fill and review)</li>
+        <li>Job posting content from supported job boards</li>
+        <li>The extension does <strong>not</strong> collect browsing history, track activity on non-job-board websites, or access data from unrelated tabs</li>
+      </ul>
+
+      <h2 class="text-xl font-bold text-white">3. How We Use Your Data</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li><strong>Job matching:</strong> AI scoring of job postings against your resume and preferences</li>
+        <li><strong>Document generation:</strong> Creating tailored resumes and cover letters for specific positions</li>
+        <li><strong>Application automation:</strong> Auto-filling job application forms with your profile data</li>
+        <li><strong>Email monitoring:</strong> Detecting application responses (interviews, rejections, offers) in your connected Gmail</li>
+        <li><strong>Notifications:</strong> Sending email updates about your application status and search activity</li>
+        <li><strong>Service improvement:</strong> Aggregate, anonymized usage analytics to improve the product</li>
+      </ul>
+
+      <h2 class="text-xl font-bold text-white">4. AI Processing</h2>
+      <p>We use Anthropic's Claude AI to score jobs, generate documents, and provide chat assistance. Your resume content and job descriptions are sent to Anthropic's API for processing. Anthropic does not use this data to train their models. See <a href="https://www.anthropic.com/privacy" class="text-gold-400 hover:underline">Anthropic's Privacy Policy</a> for details.</p>
+
+      <h2 class="text-xl font-bold text-white">5. Data Storage & Security</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Data is stored on Google Cloud infrastructure in the EU (europe-west1) for GDPR compliance</li>
+        <li>All connections use TLS/HTTPS encryption</li>
+        <li>Passwords are hashed using bcrypt</li>
+        <li>Authentication uses JWT tokens with configurable expiration</li>
+        <li>API keys and secrets are stored in Google Cloud Secret Manager</li>
+      </ul>
+
+      <h2 class="text-xl font-bold text-white">6. Data Sharing</h2>
+      <p>We do not sell your personal data. We share data only with:</p>
+      <ul class="list-disc pl-6 space-y-1">
+        <li><strong>Anthropic:</strong> Resume and job data for AI processing (under their data processing terms)</li>
+        <li><strong>Stripe:</strong> Payment information for subscription billing (we do not store credit card numbers)</li>
+        <li><strong>Google Cloud:</strong> Infrastructure provider for data hosting</li>
+        <li><strong>Job boards:</strong> Your profile data is submitted to job boards only when you approve an application</li>
+      </ul>
+
+      <h2 class="text-xl font-bold text-white">7. Your Rights (GDPR)</h2>
+      <p>If you are in the European Economic Area, you have the right to:</p>
+      <ul class="list-disc pl-6 space-y-1">
+        <li><strong>Access:</strong> Request a copy of all data we hold about you</li>
+        <li><strong>Rectification:</strong> Correct inaccurate personal data</li>
+        <li><strong>Erasure:</strong> Request deletion of your account and all associated data</li>
+        <li><strong>Portability:</strong> Receive your data in a machine-readable format</li>
+        <li><strong>Objection:</strong> Object to processing of your personal data</li>
+      </ul>
+      <p>To exercise these rights, contact us at <a href="mailto:privacy@job007.ai" class="text-gold-400 hover:underline">privacy@job007.ai</a>.</p>
+
+      <h2 class="text-xl font-bold text-white">8. Data Retention</h2>
+      <p>We retain your data for as long as your account is active. If you delete your account, all personal data is permanently removed within 30 days. Anonymized, aggregate usage statistics may be retained indefinitely.</p>
+
+      <h2 class="text-xl font-bold text-white">9. Cookies</h2>
+      <p>The Job007 web application uses essential cookies only (authentication tokens). We do not use tracking cookies, advertising cookies, or third-party analytics that track individual users.</p>
+
+      <h2 class="text-xl font-bold text-white">10. Children's Privacy</h2>
+      <p>Job007 is not intended for users under 16 years of age. We do not knowingly collect data from children.</p>
+
+      <h2 class="text-xl font-bold text-white">11. Changes to This Policy</h2>
+      <p>We may update this privacy policy from time to time. We will notify registered users by email of any material changes.</p>
+
+      <h2 class="text-xl font-bold text-white">12. Contact</h2>
+      <p>For privacy inquiries, contact us at:</p>
+      <p class="font-mono text-gold-400">privacy@job007.ai</p>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-white/5 py-8">
+    <div class="max-w-4xl mx-auto px-6 flex items-center justify-between">
+      <p class="text-xs text-slate-600">&copy; 2026 Job<span class="font-mono">007</span>. All rights reserved.</p>
+      <a href="/" class="text-xs text-slate-500 hover:text-white transition-colors">Home</a>
+    </div>
+  </footer>
+</body>
+</html>
