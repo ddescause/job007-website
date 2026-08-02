@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# AI answer engines — allow, this is how people will find us
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://job007.ai/sitemap.xml
