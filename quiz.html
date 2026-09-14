@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mission Briefing — Job007</title>
+  <meta name="description" content="Eight questions so your agent knows what to look for. Takes about a minute.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="https://job007.ai/quiz.html">
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon-180.png">
+
+  <script src="/assets/analytics.js" defer></script>
+  <link rel="stylesheet" href="/assets/tailwind.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100dvh;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #d4a853 0%, #c8973f 100%);
+      color: #0f172a;
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    .btn-gold:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .btn-gold:disabled { filter: grayscale(.6); opacity: .5; transform: none; cursor: not-allowed; }
+
+    /* One answer button. The whole row is the target — a 44px-plus tap area
+       matters more here than anywhere else on the site, because this page is
+       built to be answered on a phone with one thumb. */
+    .opt {
+      display: flex;
+      align-items: center;
+      gap: .875rem;
+      width: 100%;
+      min-height: 3.5rem;
+      padding: .875rem 1.125rem;
+      text-align: left;
+      border-radius: .875rem;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      color: #e2e8f0;
+      font-size: .9375rem;
+      cursor: pointer;
+      transition: border-color .18s ease, background .18s ease, transform .18s ease;
+    }
+    .opt:hover { border-color: rgba(212,168,83,.5); background: rgba(212,168,83,.06); }
+    .opt:focus-visible { outline: 2px solid #d4a853; outline-offset: 2px; }
+    .opt[aria-pressed="true"] { border-color: #d4a853; background: rgba(212,168,83,.1); }
+    .opt .key {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .6875rem;
+      color: #64748b;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: .375rem;
+      padding: .125rem .4rem;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .opt[aria-pressed="true"] .key { color: #d4a853; border-color: rgba(212,168,83,.4); }
+
+    input[type="text"], input[type="number"], select {
+      width: 100%;
+      padding: .875rem 1.125rem;
+      border-radius: .875rem;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.03);
+      color: #fff;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    input::placeholder { color: #64748b; }
+    input:focus, select:focus { outline: none; border-color: #d4a853; }
+    select option { background: #1e293b; color: #e2e8f0; }
+
+    .step { animation: rise .35s cubic-bezier(.16,1,.3,1) both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .step { animation: none; }
+      .btn-gold:hover { transform: none; }
+    }
+
+    .bar { transition: width .4s cubic-bezier(.16,1,.3,1); }
+  </style>
+</head>
+<body>
+
+  <div class="min-h-dvh flex flex-col">
+
+    <!-- ── Header: progress ─────────────────────────────────── -->
+    <header class="border-b border-white/5">
+      <div class="max-w-xl mx-auto px-5 py-4 flex items-center gap-4">
+        <a href="/" class="flex items-center gap-1 shrink-0" aria-label="Job007 home">
+          <span class="font-display text-lg font-bold text-white">Job</span><span class="font-mono text-lg font-bold text-gold-400">007</span>
+        </a>
+        <div class="flex-1 h-1 rounded-full bg-white/5 overflow-hidden">
+          <div id="bar" class="bar h-full rounded-full bg-gold-400" style="width: 12%"></div>
+        </div>
+        <span id="counter" class="font-mono text-[11px] text-slate-500 tabular-nums shrink-0">1 / 8</span>
+      </div>
+    </header>
+
+    <!-- ── The question ─────────────────────────────────────── -->
+    <main class="flex-1 flex items-start sm:items-center justify-center px-5 py-10">
+      <div class="w-full max-w-xl">
+        <div id="stage" aria-live="polite"></div>
+      </div>
+    </main>
+
+    <!-- ── Footer: back ─────────────────────────────────────── -->
+    <footer class="border-t border-white/5">
+      <div class="max-w-xl mx-auto px-5 py-4 flex items-center justify-between">
+        <button type="button" id="back"
+                class="font-mono text-[11px] tracking-widest uppercase text-slate-500 hover:text-slate-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
+          &larr; Back
+        </button>
+        <span class="font-mono text-[11px] text-slate-600">No account needed yet</span>
+      </div>
+    </footer>
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── The briefing ──────────────────────────────────────────────────────
+  // Eight questions, one per screen. Each maps onto a field the agent
+  // genuinely needs before its first search — nothing is asked to pad the
+  // funnel, which is why this is eight questions and not eighteen.
+  var QUESTIONS = [
+    {
+      key: 'title',
+      eyebrow: 'Objective',
+      q: 'What role are you going after?',
+      help: 'The job title you’d like to see in the offer letter. You can add more later.',
+      type: 'text',
+      placeholder: 'e.g. VP of Product, Staff Engineer, Head of Finance',
+    },
+    {
+      key: 'seniority',
+      eyebrow: 'Clearance',
+      q: 'Where are you in your career?',
+      type: 'choice',
+      options: [
+        ['entry', 'Early career', '0–2 years'],
+        ['mid', 'Mid-level', '3–5 years'],
+        ['senior', 'Senior or lead', '6–10 years'],
+        ['director', 'Director or head of', '10+ years'],
+        ['exec', 'VP, C-level or founder', ''],
+      ],
+    },
+    {
+      key: 'work_mode',
+      eyebrow: 'Theatre',
+      q: 'How do you want to work?',
+      type: 'choice',
+      options: [
+        ['remote', 'Remote only', ''],
+        ['hybrid', 'Hybrid', ''],
+        ['onsite', 'On-site', ''],
+        ['any', 'Open to any of it', ''],
+      ],
+    },
+    {
+      key: 'location',
+      eyebrow: 'Territory',
+      q: 'Which city or region should we search?',
+      help: 'Where you can legally work today. Remote-only searches still need a country.',
+      type: 'text',
+      placeholder: 'e.g. Toronto, Canada — or United States (remote)',
+    },
+    // Interstitial — placed here deliberately. Four answers in, the visitor
+    // has enough invested to want to know what happens next, and this is
+    // where an explainer earns its place rather than delaying the start.
+    {
+      key: null,
+      type: 'interlude',
+      eyebrow: 'Briefing',
+      q: 'Here’s what your agent does with this',
+      steps: [
+        ['Searches', 'LinkedIn, Indeed, your Gmail job alerts and thousands of company hiring boards — including roles that never reach the big sites.'],
+        ['Scores', 'Every match read against your real resume, out of 10, with the strengths and the gaps written out.'],
+        ['Writes &amp; applies', 'A tailored resume and cover letter per role, the form filled in your own browser, ready for your Submit.'],
+      ],
+    },
+    {
+      key: 'salary_min',
+      eyebrow: 'Terms',
+      q: 'What’s your minimum acceptable salary?',
+      help: 'Used as a hard filter. Roles below it are never applied to.',
+      type: 'select',
+      options: [
+        ['', 'Prefer not to say'],
+        ['60000', '$60,000+'],
+        ['80000', '$80,000+'],
+        ['100000', '$100,000+'],
+        ['120000', '$120,000+'],
+        ['150000', '$150,000+'],
+        ['180000', '$180,000+'],
+        ['200000', '$200,000+'],
+        ['250000', '$250,000+'],
+      ],
+    },
+    {
+      key: 'status',
+      eyebrow: 'Status',
+      q: 'What’s your situation right now?',
+      type: 'choice',
+      options: [
+        ['employed_quiet', 'Employed — looking quietly', 'Nothing is ever posted from your work account'],
+        ['employed_open', 'Employed — openly looking', ''],
+        ['unemployed', 'Between roles', ''],
+        ['exploring', 'Just seeing what’s out there', ''],
+      ],
+    },
+    {
+      key: 'start',
+      eyebrow: 'Timing',
+      q: 'How soon could you start?',
+      type: 'choice',
+      options: [
+        ['now', 'Immediately', ''],
+        ['2w', 'Two weeks’ notice', ''],
+        ['1m', 'About a month', ''],
+        ['3m', 'Three months or more', ''],
+      ],
+    },
+    {
+      key: 'resume',
+      eyebrow: 'Dossier',
+      q: 'Do you have a resume ready?',
+      type: 'choice',
+      options: [
+        ['yes', 'Yes, I’ll upload it', ''],
+        ['outdated', 'I have one, but it’s out of date', 'Fine — the agent rewrites it per role anyway'],
+        ['no', 'I don’t have one', 'We’ll build it with you from your history'],
+      ],
+    },
+  ];
+
+  var QUESTION_COUNT = QUESTIONS.filter(function (q) { return q.key; }).length;
+
+  var answers = {};
+  var index = 0;
+  var started = false;
+
+  var stage = document.getElementById('stage');
+  var bar = document.getElementById('bar');
+  var counter = document.getElementById('counter');
+  var back = document.getElementById('back');
+
+  function track(event, props) {
+    if (window.J7) window.J7.track(event, props);
+  }
+
+  /** Progress is counted in real questions, so the interlude doesn't inflate it. */
+  function answeredSoFar() {
+    var n = 0;
+    for (var i = 0; i < index; i++) if (QUESTIONS[i].key) n++;
+    return n;
+  }
+
+  function paint() {
+    var done = answeredSoFar();
+    var current = Math.min(done + 1, QUESTION_COUNT);
+    bar.style.width = Math.round((done / QUESTION_COUNT) * 100 || 6) + '%';
+    counter.textContent = current + ' / ' + QUESTION_COUNT;
+    back.disabled = index === 0;
+  }
+
+  function el(tag, className, html) {
+    var node = document.createElement(tag);
+    if (className) node.className = className;
+    if (html !== undefined) node.innerHTML = html;
+    return node;
+  }
+
+  function header(q) {
+    var wrap = el('div', 'mb-8');
+    wrap.appendChild(el('div', 'font-mono text-[11px] tracking-[0.2em] uppercase text-gold-400 mb-3', q.eyebrow));
+    wrap.appendChild(el('h1', 'font-display text-2xl sm:text-3xl font-bold text-white leading-snug', q.q));
+    if (q.help) wrap.appendChild(el('p', 'text-sm text-slate-500 mt-3 leading-relaxed', q.help));
+    return wrap;
+  }
+
+  function advance(key, value) {
+    if (key) {
+      answers[key] = value;
+      track('quiz_step', { step: answeredSoFar() + 1, key: key });
+    }
+    if (index >= QUESTIONS.length - 1) return finish();
+    index++;
+    render();
+  }
+
+  function render() {
+    var q = QUESTIONS[index];
+    stage.innerHTML = '';
+    var frame = el('div', 'step');
+    frame.appendChild(header(q));
+
+    if (q.type === 'choice') {
+      var list = el('div', 'flex flex-col gap-2.5');
+      q.options.forEach(function (opt, i) {
+        var value = opt[0], label = opt[1], note = opt[2];
+        var btn = el('button', 'opt');
+        btn.type = 'button';
+        btn.setAttribute('aria-pressed', answers[q.key] === value ? 'true' : 'false');
+        var text = el('span', 'flex flex-col gap-0.5');
+        text.appendChild(el('span', 'font-medium text-white', label));
+        if (note) text.appendChild(el('span', 'text-xs text-slate-500', note));
+        btn.appendChild(text);
+        btn.appendChild(el('span', 'key', String(i + 1)));
+        btn.addEventListener('click', function () { advance(q.key, value); });
+        list.appendChild(btn);
+      });
+      frame.appendChild(list);
+      // Number keys pick an answer — this whole flow should be usable without
+      // reaching for the mouse.
+      frame.dataset.keys = String(q.options.length);
+
+    } else if (q.type === 'text') {
+      var form = el('form', 'flex flex-col gap-4');
+      var input = el('input');
+      input.type = 'text';
+      input.id = 'q-' + q.key;
+      input.name = q.key;
+      input.placeholder = q.placeholder || '';
+      input.autocomplete = 'off';
+      input.value = answers[q.key] || '';
+      form.appendChild(input);
+      var next = el('button', 'btn-gold w-full py-3.5 rounded-xl text-sm font-bold tracking-wide', 'Continue');
+      next.type = 'submit';
+      form.appendChild(next);
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var v = input.value.trim();
+        if (!v) { input.focus(); return; }
+        advance(q.key, v);
+      });
+      frame.appendChild(form);
+      setTimeout(function () { input.focus(); }, 60);
+
+    } else if (q.type === 'select') {
+      var sform = el('form', 'flex flex-col gap-4');
+      var sel = el('select');
+      sel.id = 'q-' + q.key;
+      sel.name = q.key;
+      q.options.forEach(function (opt) {
+        var o = el('option', null, opt[1]);
+        o.value = opt[0];
+        if (answers[q.key] === opt[0]) o.selected = true;
+        sel.appendChild(o);
+      });
+      sform.appendChild(sel);
+      var sNext = el('button', 'btn-gold w-full py-3.5 rounded-xl text-sm font-bold tracking-wide', 'Continue');
+      sNext.type = 'submit';
+      sform.appendChild(sNext);
+      sform.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        advance(q.key, sel.value);
+      });
+      frame.appendChild(sform);
+
+    } else if (q.type === 'interlude') {
+      var steps = el('div', 'flex flex-col gap-4 mb-8');
+      q.steps.forEach(function (s, i) {
+        var row = el('div', 'flex gap-4 items-start');
+        row.appendChild(el('div', 'font-mono text-xs text-gold-400 border border-gold-400/20 rounded-lg w-8 h-8 flex items-center justify-center shrink-0 mt-0.5', String(i + 1)));
+        var body = el('div', 'flex flex-col gap-1');
+        body.appendChild(el('div', 'text-sm font-semibold text-white', s[0]));
+        body.appendChild(el('div', 'text-sm text-slate-400 leading-relaxed', s[1]));
+        row.appendChild(body);
+        steps.appendChild(row);
+      });
+      frame.appendChild(steps);
+      var go = el('button', 'btn-gold w-full py-3.5 rounded-xl text-sm font-bold tracking-wide', 'Keep going — four left');
+      go.type = 'button';
+      go.addEventListener('click', function () { advance(null, null); });
+      frame.appendChild(go);
+    }
+
+    stage.appendChild(frame);
+    paint();
+  }
+
+  /** Final screen: what we found out, and the one thing left to do. */
+  function finish() {
+    track('quiz_complete', {
+      seniority: answers.seniority,
+      work_mode: answers.work_mode,
+      status: answers.status,
+      resume: answers.resume,
+    });
+
+    bar.style.width = '100%';
+    counter.textContent = QUESTION_COUNT + ' / ' + QUESTION_COUNT;
+    back.disabled = true;
+
+    // The app is on another origin, so the answers travel in the URL and are
+    // read once at registration to pre-fill onboarding.
+    var payload = btoa(unescape(encodeURIComponent(JSON.stringify(answers))))
+      .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    var href = 'https://app.job007.ai/register?q=' + payload;
+    if (window.J7) href = window.J7.handoff(href);
+
+    stage.innerHTML = '';
+    var frame = el('div', 'step');
+    frame.appendChild(el('div', 'font-mono text-[11px] tracking-[0.2em] uppercase text-gold-400 mb-3', 'Briefing complete'));
+    frame.appendChild(el('h1', 'font-display text-2xl sm:text-3xl font-bold text-white leading-snug mb-4',
+      'Your agent knows what to look for.'));
+
+    var summary = el('div', 'rounded-2xl border border-white/10 bg-white/[0.02] p-5 mb-6 flex flex-col gap-3');
+    var rows = [
+      ['Target', answers.title || '—'],
+      ['Level', labelFor('seniority', answers.seniority)],
+      ['Where', (answers.location || '—') + (answers.work_mode ? ' · ' + labelFor('work_mode', answers.work_mode) : '')],
+      ['Floor', answers.salary_min ? '$' + Number(answers.salary_min).toLocaleString('en-US') + '+' : 'Not set'],
+      ['Start', labelFor('start', answers.start)],
+    ];
+    rows.forEach(function (r) {
+      var row = el('div', 'flex items-baseline gap-4 text-sm');
+      row.appendChild(el('span', 'font-mono text-[11px] uppercase tracking-widest text-slate-500 w-16 shrink-0', r[0]));
+      row.appendChild(el('span', 'text-slate-200', r[1]));
+      summary.appendChild(row);
+    });
+    frame.appendChild(summary);
+
+    frame.appendChild(el('p', 'text-sm text-slate-400 leading-relaxed mb-6',
+      'Create your account and the agent runs its first search against exactly this. '
+      + 'Nothing you just answered has to be typed again.'));
+
+    var cta = el('a', 'btn-gold block text-center py-4 rounded-xl text-base font-bold tracking-wide', 'Create my account');
+    cta.href = href;
+    cta.setAttribute('data-j7-cta', 'quiz-complete');
+    frame.appendChild(cta);
+
+    frame.appendChild(el('p', 'text-center text-xs text-slate-600 font-mono mt-4',
+      '14 days free · Cancel in one click'));
+
+    stage.appendChild(frame);
+  }
+
+  function labelFor(key, value) {
+    if (!value) return '—';
+    var q = QUESTIONS.filter(function (x) { return x.key === key; })[0];
+    if (!q || !q.options) return value;
+    var hit = q.options.filter(function (o) { return o[0] === value; })[0];
+    return hit ? hit[1] : value;
+  }
+
+  back.addEventListener('click', function () {
+    if (index === 0) return;
+    index--;
+    render();
+  });
+
+  document.addEventListener('keydown', function (ev) {
+    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    var tag = (ev.target && ev.target.tagName) || '';
+    if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
+    var n = parseInt(ev.key, 10);
+    var opts = stage.querySelectorAll('.opt');
+    if (n >= 1 && n <= opts.length) {
+      ev.preventDefault();
+      opts[n - 1].click();
+    }
+  });
+
+  // The first question counts as the start of the quiz.
+  function boot() {
+    if (!started) {
+      started = true;
+      track('quiz_start', {});
+    }
+    render();
+  }
+  boot();
+})();
+</script>
+</body>
+</html>

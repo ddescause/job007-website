@@ -96,7 +96,7 @@
       "name": "Pro",
       "price": "29",
       "priceCurrency": "USD",
-      "description": "Unlimited searches across every source, AI document generation, one-click auto-apply, scheduled agents, 20 applications per day. 7-day free trial.",
+      "description": "Unlimited searches across every source, AI document generation, one-click auto-apply, scheduled agents, 20 applications per day. 14-day free trial.",
       "availability": "https://schema.org/InStock",
       "url": "https://job007.ai/#pricing"
     },
@@ -105,7 +105,7 @@
       "name": "Executive",
       "price": "79",
       "priceCurrency": "USD",
-      "description": "Everything in Pro plus unlimited applications, unlimited AI documents and chat, and custom job sources. 7-day free trial.",
+      "description": "Everything in Pro plus unlimited applications, unlimited AI documents and chat, and custom job sources. 14-day free trial.",
       "availability": "https://schema.org/InStock",
       "url": "https://job007.ai/#pricing"
     }
@@ -124,50 +124,82 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "Isn't this just spray-and-pray? Won't I get flagged for applying everywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The opposite. Every role is scored out of 10 against your real resume before anything is written, and you set the floor — most people only let the agent act on 7+ matches. Anything below it is simply never applied to. Volume isn’t the product; being early to the roles that genuinely fit is. That’s also why our plans cap applications per day rather than selling you a thousand a month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Won't an AI-written resume get rejected by the ATS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The screening software reads structure and relevance, and that’s exactly what tailoring fixes. Job007 starts from your resume and adjusts emphasis and wording for each specific posting — it doesn’t invent a new career for you. The output is a clean, parseable document, and tailoring per role is what every career coach has advised for thirty years. We just do it in seconds instead of an hour."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will employers know I used AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "What gives AI away is a cover letter that reads like everyone else’s and a resume that doesn’t match the person in the interview. Neither applies here: the substance stays yours, and you can rewrite any line by chatting with the agent before it goes out. And because the extension fills the employer’s own form in your own browser, what arrives looks exactly like a careful human application — because it is one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Isn't using this lazy? Shouldn't I write my own applications?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retyping your address into a four-hundredth Workday form is not the part of a job search that gets you hired. Job007 takes the repetitive half — finding, matching, drafting, filling — so your hours go to interview prep, networking and the conversations that actually decide it. You still make every judgement call that matters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why should I pay for this while I'm out of work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A search costs money either way — the average one runs for months, and every extra week is a week of lost salary. If Job007 pulls your start date forward even slightly, it has paid for itself many times over. The 14-day trial exists so you can see real matches and real applications before you’re charged anything, and cancelling takes one click."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I review everything before it's sent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and that’s the default. Each application opens in a real browser tab with every field filled and your documents attached; you read it and press Submit. If you’d rather not, you can hand a source over to fully autonomous mode — but that’s a deliberate choice you make, not what happens out of the box."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it search that I can't find on LinkedIn?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Thousands of company hiring boards directly — Ashby, Greenhouse, Lever, Workday, iCIMS, SmartRecruiters and more — plus your Gmail job alerts, Indeed, and the career pages of any company you add to your dream list. A great many of those roles reach the big job sites days later, or never. Being in the first wave is the cheapest advantage in a job search, and it’s the one this buys you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the scoring actually work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The agent reads the full job description and compares it against your actual resume — skills, seniority, industry, trajectory — not a keyword count. You get a score out of 10 with a written account of your strengths for that role and the gaps you’d be asked about. Claude does the reading, and you can argue with it in chat if you think it got one wrong."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my resume is old or I don't love it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload it anyway. The agent rewrites and re-emphasises it per application, so an out-of-date master document is a perfectly good starting point — and you can ask the assistant to reshape it in plain language: “make the leadership experience louder”, “cut the 2014 job to one line”. Every document is editable, and it learns what you prefer."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Is my data safe and private?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Your data is stored on Google Cloud infrastructure in the EU (europe-west1) under GDPR, encrypted in transit with TLS. We never sell your personal data. Resume and job text is sent to Anthropic's Claude API for scoring and document generation — Anthropic does not use it to train their models. Gmail access is read-only, and we never send mail from your account. You can export or delete everything at any time. Full detail in our Privacy Policy."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does it actually submit applications automatically?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Job007 fills all application fields and uploads your tailored documents. Each application opens in a separate browser tab for your review. You control the final \"Submit\" click — or set it to fully autonomous mode."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What job platforms does it support?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "LinkedIn, Indeed, Gmail job alerts, and thousands of company career boards across the major hiring platforms — Ashby, Greenhouse, Lever, Workday, iCIMS, SmartRecruiters and more — plus any specific company's career page you add to your \"dream companies\" list. Many of these roles never appear on the big job sites. We're constantly adding more sources."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does the AI scoring work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our AI reads the full job description and compares it against your actual resume using semantic analysis — not simple keyword matching. It considers your skills, experience level, industry background, and career trajectory to produce a match score out of 10, along with a written analysis of your strengths and the gaps."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use it if I'm currently employed?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "That's exactly who we built this for. Job007 runs on your schedule, quietly scanning and preparing applications. You spend zero hours on the search itself — just review what the agent found during your morning coffee."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if I don't like a generated resume?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Every document is fully editable. You can also chat with the AI assistant and ask it to regenerate with specific instructions: \"emphasize my leadership experience more\" or \"make the tone more confident.\" It learns your preferences over time."
+        "text": "Your data lives on Google Cloud in the EU (europe-west1) under GDPR, encrypted in transit with TLS. We never sell personal data. Resume and job text goes to Anthropic’s Claude API for scoring and drafting — Anthropic does not train on it. Gmail access is read-only and we never send mail from your account. You can export or delete everything at any time. Full detail in our Privacy Policy."
       }
     },
     {
@@ -175,12 +207,13 @@
       "name": "Is there a free trial?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — every new account starts with a 7-day free trial on either Pro or Executive, with full access to everything (unlimited search, auto-apply, the scheduler, every job source — nothing held back). It takes a card, but you're not charged until day 8 and can cancel anytime before then at no cost."
+        "text": "Yes — 14 days on Pro or Executive with nothing held back: unlimited search, auto-apply, the scheduler, every source. Starting it takes a card, you are not charged until day 15, and you can cancel before then at no cost. Arrive on a friend’s invite link and the trial is 21 days."
       }
     }
   ]
 }
   </script>
+  <script src="/assets/analytics.js" defer></script>
   <link rel="stylesheet" href="/assets/tailwind.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -367,8 +400,8 @@
         <a href="#faq" class="hover:text-white transition-colors duration-300">FAQ</a>
       </div>
       <div class="flex items-center gap-4">
-        <a href="https://app.job007.ai/login" class="hidden sm:inline-block text-sm text-slate-400 hover:text-white transition-colors">Sign In</a>
-        <a href="https://app.job007.ai/register" class="btn-gold px-5 py-2 rounded-lg text-sm font-semibold tracking-wide">Get Started Free</a>
+        <a href="https://app.job007.ai/login" data-j7-cta="signin" class="hidden sm:inline-block text-sm text-slate-400 hover:text-white transition-colors">Sign In</a>
+        <a href="https://app.job007.ai/register" data-j7-cta="nav" class="btn-gold px-5 py-2 rounded-lg text-sm font-semibold tracking-wide">Get Started Free</a>
       </div>
     </div>
   </nav>
@@ -408,14 +441,14 @@
 
       <!-- Subtitle -->
       <p class="reveal reveal-delay-2 max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-400 leading-relaxed mb-10 font-light">
-        While you sleep, Job<span class="font-mono text-gold-400/80">007</span> scans LinkedIn, Indeed, and thousands of company hiring boards — surfacing roles you won't find on the big job sites, often <span class="text-gold-400/90">before they're posted there</span> — scores each against your resume, writes tailored resumes and cover letters you refine just by chatting, and is <span class="text-gold-400/90">first in line to apply</span> the moment a match appears. Everything's ready for you by morning.
+        Your agent works overnight — finding the roles before they reach the big job sites, writing the application, and being <span class="text-gold-400/90">first in line</span> when the posting opens.
       </p>
 
       <!-- CTA buttons -->
       <div class="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <a href="https://app.job007.ai/register" class="btn-gold px-8 py-3.5 rounded-xl text-base font-bold tracking-wide shadow-lg shadow-gold-400/20 flex items-center gap-2">
+        <a href="/quiz.html" data-j7-cta="hero" class="btn-gold px-8 py-3.5 rounded-xl text-base font-bold tracking-wide shadow-lg shadow-gold-400/20 flex items-center gap-2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          Start Free — in Your Browser
+          Start Your Briefing — 60 Seconds
         </a>
         <a href="#how-it-works" class="group flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-600 text-slate-300 hover:border-gold-400/50 hover:text-white transition-all duration-300 text-sm font-medium">
           See How It Works
@@ -423,6 +456,21 @@
         </a>
       </div>
       <p class="reveal reveal-delay-3 -mt-12 mb-16 text-xs text-slate-500">No install needed — runs in your browser. <a href="#download" class="text-slate-400 hover:text-gold-400 underline underline-offset-2">See what you need to get started</a></p>
+
+      <!-- ── Live agent activity ───────────────────────────────────────
+           Real applications the agent has sent, anonymised server-side.
+           Hidden until the feed has enough rows to be both useful and
+           non-identifying, so it is absent rather than embarrassing on a
+           quiet week. -->
+      <div id="activity" hidden class="mb-16">
+        <div class="flex items-center justify-center gap-2 mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-agent-green animate-pulse"></span>
+          <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-slate-500">Agent activity &mdash; last 14 days</span>
+        </div>
+        <div class="max-w-2xl mx-auto rounded-xl border border-white/5 bg-white/[0.015] overflow-hidden">
+          <ul id="activity-list" class="divide-y divide-white/5 text-left"></ul>
+        </div>
+      </div>
 
       <!-- Hero screenshot: the Applications dashboard mid-search -->
 <div class="reveal reveal-delay-4 relative max-w-4xl mx-auto min-w-0">
@@ -914,7 +962,8 @@
       <div class="text-center mb-16">
         <span class="reveal section-label">Pricing</span>
         <h2 class="reveal reveal-delay-1 font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-4">Choose Your<br><span class="text-gold-400 italic">Clearance Level</span></h2>
-        <p class="reveal reveal-delay-2 text-slate-400 max-w-xl mx-auto">Both plans start with a 7-day free trial. Cancel anytime &mdash; no charge until day&nbsp;8.</p>
+        <p class="reveal reveal-delay-2 text-slate-400 max-w-xl mx-auto">Both plans start with a <strong class="text-slate-200">14-day free trial</strong>. We take a card to start it, you&rsquo;re not charged until day&nbsp;15, and you can cancel in one click before then.</p>
+        <p class="reveal reveal-delay-2 text-sm text-slate-500 max-w-xl mx-auto mt-3">Arrived on a friend&rsquo;s invite link? Your trial is <strong class="text-gold-400/90">21 days</strong> instead.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto">
@@ -927,7 +976,7 @@
               <span class="font-display text-4xl font-bold text-white">$29</span>
               <span class="text-sm text-slate-500">/month</span>
             </div>
-            <p class="text-xs text-gold-400/80 mt-1">✦ First 7 days free</p>
+            <p class="text-xs text-gold-400/80 mt-1">✦ First 14 days free</p>
           </div>
           <ul class="space-y-3 mb-8 flex-1">
             <li class="flex items-start gap-2 text-sm text-slate-300">
@@ -955,8 +1004,8 @@
               20 applications per day
             </li>
           </ul>
-          <a href="https://app.job007.ai/register?plan=pro" class="btn-gold block text-center py-3 rounded-xl text-sm font-bold tracking-wide">
-            Start 7-Day Free Trial
+          <a href="https://app.job007.ai/register?plan=pro" data-j7-cta="pricing-pro" class="btn-gold block text-center py-3 rounded-xl text-sm font-bold tracking-wide">
+            Start 14-Day Free Trial
           </a>
         </div>
 
@@ -968,7 +1017,7 @@
               <span class="font-display text-4xl font-bold text-white">$79</span>
               <span class="text-sm text-slate-500">/month</span>
             </div>
-            <p class="text-xs text-slate-400 mt-1">First 7 days free</p>
+            <p class="text-xs text-slate-400 mt-1">First 14 days free</p>
           </div>
           <ul class="space-y-3 mb-8 flex-1">
             <li class="flex items-start gap-2 text-sm text-slate-400">
@@ -996,10 +1045,19 @@
               Custom &amp; all job sources
             </li>
           </ul>
-          <a href="https://app.job007.ai/register?plan=executive" class="block text-center py-3 rounded-xl border border-white/10 text-sm font-semibold text-slate-300 hover:border-white/30 hover:text-white transition-all">
-            Start 7-Day Free Trial
+          <a href="https://app.job007.ai/register?plan=executive" data-j7-cta="pricing-executive" class="block text-center py-3 rounded-xl border border-white/10 text-sm font-semibold text-slate-300 hover:border-white/30 hover:text-white transition-all">
+            Start 14-Day Free Trial
           </a>
         </div>
+      </div>
+
+      <!-- Referral -->
+      <div class="reveal reveal-delay-3 max-w-3xl mx-auto mt-10 rounded-2xl border border-gold-400/20 bg-gold-400/[0.04] p-6 sm:p-8 text-center">
+        <div class="font-mono text-xs text-gold-400 tracking-widest mb-3">RECRUIT AN AGENT</div>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+          Every friend who joins on your invite link starts with <strong class="text-white">21 days free</strong> instead of 14. When one of them stays on past their trial, you get <strong class="text-white">a free week of Pro</strong> &mdash; about five of them covers a month.
+        </p>
+        <p class="text-xs text-slate-500 mt-4">Your invite link lives on the Plan page once you&rsquo;re signed in.</p>
       </div>
     </div>
   </section>
@@ -1017,84 +1075,143 @@
           <h3>
             <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 text-left cursor-pointer"
                     aria-expanded="false" aria-controls="faq-answer-1" id="faq-question-1">
-              <span class="text-sm font-medium text-white pr-4">Is my data safe and private?</span>
+              <span class="text-sm font-medium text-white pr-4">Isn't this just spray-and-pray? Won't I get flagged for applying everywhere?</span>
               <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
           </h3>
           <div class="faq-answer px-5 pb-5" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
-<p class="text-sm text-slate-400 leading-relaxed">Your data is stored on Google Cloud infrastructure in the EU (europe-west1) under GDPR, encrypted in transit with TLS. We never sell your personal data. Resume and job text is sent to Anthropic's Claude API for scoring and document generation &mdash; Anthropic does not use it to train their models. Gmail access is read-only, and we never send mail from your account. You can export or delete everything at any time. Full detail in our <a href="https://job007.ai/privacy.html" class="text-gold-400 hover:underline">Privacy Policy</a>.</p>          </div>
+            <p class="text-sm text-slate-400 leading-relaxed">The opposite. Every role is scored out of 10 against your real resume before anything is written, and you set the floor &mdash; most people only let the agent act on 7+ matches. Anything below it is simply never applied to. Volume isn’t the product; being early to the roles that genuinely fit is. That’s also why our plans cap applications per day rather than selling you a thousand a month.</p>
+          </div>
         </div>
 
         <div class="faq-item border border-white/5 rounded-xl overflow-hidden bg-white/[0.01] hover:bg-white/[0.02] transition-colors">
           <h3>
             <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 text-left cursor-pointer"
                     aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
-              <span class="text-sm font-medium text-white pr-4">Does it actually submit applications automatically?</span>
+              <span class="text-sm font-medium text-white pr-4">Won't an AI-written resume get rejected by the ATS?</span>
               <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
           </h3>
           <div class="faq-answer px-5 pb-5" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
-<p class="text-sm text-slate-400 leading-relaxed">Job007 fills all application fields and uploads your tailored documents. Each application opens in a separate browser tab for your review. You control the final "Submit" click &mdash; or set it to fully autonomous mode.</p>          </div>
+            <p class="text-sm text-slate-400 leading-relaxed">The screening software reads structure and relevance, and that’s exactly what tailoring fixes. Job007 starts from <em>your</em> resume and adjusts emphasis and wording for each specific posting &mdash; it doesn’t invent a new career for you. The output is a clean, parseable document, and tailoring per role is what every career coach has advised for thirty years. We just do it in seconds instead of an hour.</p>
+          </div>
         </div>
 
         <div class="faq-item border border-white/5 rounded-xl overflow-hidden bg-white/[0.01] hover:bg-white/[0.02] transition-colors">
           <h3>
             <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 text-left cursor-pointer"
                     aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
-              <span class="text-sm font-medium text-white pr-4">What job platforms does it support?</span>
+              <span class="text-sm font-medium text-white pr-4">Will employers know I used AI?</span>
               <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
           </h3>
           <div class="faq-answer px-5 pb-5" id="faq-answer-3" role="region" aria-labelledby="faq-question-3">
-<p class="text-sm text-slate-400 leading-relaxed">LinkedIn, Indeed, Gmail job alerts, and thousands of company career boards across the major hiring platforms &mdash; Ashby, Greenhouse, Lever, Workday, iCIMS, SmartRecruiters and more &mdash; plus any specific company's career page you add to your "dream companies" list. Many of these roles never appear on the big job sites. We're constantly adding more sources.</p>          </div>
+            <p class="text-sm text-slate-400 leading-relaxed">What gives AI away is a cover letter that reads like everyone else’s and a resume that doesn’t match the person in the interview. Neither applies here: the substance stays yours, and you can rewrite any line by chatting with the agent before it goes out. And because the extension fills the employer’s own form in your own browser, what arrives looks exactly like a careful human application &mdash; because it is one.</p>
+          </div>
         </div>
 
         <div class="faq-item border border-white/5 rounded-xl overflow-hidden bg-white/[0.01] hover:bg-white/[0.02] transition-colors">
           <h3>
             <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 text-left cursor-pointer"
                     aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
-              <span class="text-sm font-medium text-white pr-4">How does the AI scoring work?</span>
+              <span class="text-sm font-medium text-white pr-4">Isn't using this lazy? Shouldn't I write my own applications?</span>
               <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
           </h3>
           <div class="faq-answer px-5 pb-5" id="faq-answer-4" role="region" aria-labelledby="faq-question-4">
-<p class="text-sm text-slate-400 leading-relaxed">Our AI reads the full job description and compares it against your actual resume using semantic analysis &mdash; not simple keyword matching. It considers your skills, experience level, industry background, and career trajectory to produce a match score out of 10, along with a written analysis of your strengths and the gaps.</p>          </div>
+            <p class="text-sm text-slate-400 leading-relaxed">Retyping your address into a four-hundredth Workday form is not the part of a job search that gets you hired. Job007 takes the repetitive half &mdash; finding, matching, drafting, filling &mdash; so your hours go to interview prep, networking and the conversations that actually decide it. You still make every judgement call that matters.</p>
+          </div>
         </div>
 
         <div class="faq-item border border-white/5 rounded-xl overflow-hidden bg-white/[0.01] hover:bg-white/[0.02] transition-colors">
           <h3>
             <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 text-left cursor-pointer"
                     aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
-              <span class="text-sm font-medium text-white pr-4">Can I use it if I'm currently employed?</span>
+              <span class="text-sm font-medium text-white pr-4">Why should I pay for this while I'm out of work?</span>
               <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
           </h3>
           <div class="faq-answer px-5 pb-5" id="faq-answer-5" role="region" aria-labelledby="faq-question-5">
-<p class="text-sm text-slate-400 leading-relaxed">That's exactly who we built this for. Job007 runs on your schedule, quietly scanning and preparing applications. You spend zero hours on the search itself &mdash; just review what the agent found during your morning coffee.</p>          </div>
+            <p class="text-sm text-slate-400 leading-relaxed">A search costs money either way &mdash; the average one runs for months, and every extra week is a week of lost salary. If Job007 pulls your start date forward even slightly, it has paid for itself many times over. The 14-day trial exists so you can see real matches and real applications before you’re charged anything, and cancelling takes one click.</p>
+          </div>
         </div>
 
         <div class="faq-item border border-white/5 rounded-xl overflow-hidden bg-white/[0.01] hover:bg-white/[0.02] transition-colors">
           <h3>
             <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 text-left cursor-pointer"
                     aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
-              <span class="text-sm font-medium text-white pr-4">What if I don't like a generated resume?</span>
+              <span class="text-sm font-medium text-white pr-4">Can I review everything before it's sent?</span>
               <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
           </h3>
           <div class="faq-answer px-5 pb-5" id="faq-answer-6" role="region" aria-labelledby="faq-question-6">
-<p class="text-sm text-slate-400 leading-relaxed">Every document is fully editable. You can also chat with the AI assistant and ask it to regenerate with specific instructions: "emphasize my leadership experience more" or "make the tone more confident." It learns your preferences over time.</p>          </div>
+            <p class="text-sm text-slate-400 leading-relaxed">Yes, and that’s the default. Each application opens in a real browser tab with every field filled and your documents attached; you read it and press Submit. If you’d rather not, you can hand a source over to fully autonomous mode &mdash; but that’s a deliberate choice you make, not what happens out of the box.</p>
+          </div>
         </div>
 
         <div class="faq-item border border-white/5 rounded-xl overflow-hidden bg-white/[0.01] hover:bg-white/[0.02] transition-colors">
           <h3>
             <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 text-left cursor-pointer"
                     aria-expanded="false" aria-controls="faq-answer-7" id="faq-question-7">
-              <span class="text-sm font-medium text-white pr-4">Is there a free trial?</span>
+              <span class="text-sm font-medium text-white pr-4">What does it search that I can't find on LinkedIn?</span>
               <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
           </h3>
           <div class="faq-answer px-5 pb-5" id="faq-answer-7" role="region" aria-labelledby="faq-question-7">
-<p class="text-sm text-slate-400 leading-relaxed">Yes &mdash; every new account starts with a <strong class="text-slate-200">7-day free trial</strong> on either Pro or Executive, with full access to everything (unlimited search, auto-apply, the scheduler, every job source — nothing held back). It takes a card, but you're <strong class="text-slate-200">not charged until day&nbsp;8</strong> and can cancel anytime before then at no cost.</p>          </div>
+            <p class="text-sm text-slate-400 leading-relaxed">Thousands of company hiring boards directly &mdash; Ashby, Greenhouse, Lever, Workday, iCIMS, SmartRecruiters and more &mdash; plus your Gmail job alerts, Indeed, and the career pages of any company you add to your dream list. A great many of those roles reach the big job sites days later, or never. Being in the first wave is the cheapest advantage in a job search, and it’s the one this buys you.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border border-white/5 rounded-xl overflow-hidden bg-white/[0.01] hover:bg-white/[0.02] transition-colors">
+          <h3>
+            <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 text-left cursor-pointer"
+                    aria-expanded="false" aria-controls="faq-answer-8" id="faq-question-8">
+              <span class="text-sm font-medium text-white pr-4">How does the scoring actually work?</span>
+              <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer px-5 pb-5" id="faq-answer-8" role="region" aria-labelledby="faq-question-8">
+            <p class="text-sm text-slate-400 leading-relaxed">The agent reads the full job description and compares it against your actual resume &mdash; skills, seniority, industry, trajectory &mdash; not a keyword count. You get a score out of 10 with a written account of your strengths for that role and the gaps you’d be asked about. Claude does the reading, and you can argue with it in chat if you think it got one wrong.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border border-white/5 rounded-xl overflow-hidden bg-white/[0.01] hover:bg-white/[0.02] transition-colors">
+          <h3>
+            <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 text-left cursor-pointer"
+                    aria-expanded="false" aria-controls="faq-answer-9" id="faq-question-9">
+              <span class="text-sm font-medium text-white pr-4">What if my resume is old or I don't love it?</span>
+              <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer px-5 pb-5" id="faq-answer-9" role="region" aria-labelledby="faq-question-9">
+            <p class="text-sm text-slate-400 leading-relaxed">Upload it anyway. The agent rewrites and re-emphasises it per application, so an out-of-date master document is a perfectly good starting point &mdash; and you can ask the assistant to reshape it in plain language: “make the leadership experience louder”, “cut the 2014 job to one line”. Every document is editable, and it learns what you prefer.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border border-white/5 rounded-xl overflow-hidden bg-white/[0.01] hover:bg-white/[0.02] transition-colors">
+          <h3>
+            <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 text-left cursor-pointer"
+                    aria-expanded="false" aria-controls="faq-answer-10" id="faq-question-10">
+              <span class="text-sm font-medium text-white pr-4">Is my data safe and private?</span>
+              <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer px-5 pb-5" id="faq-answer-10" role="region" aria-labelledby="faq-question-10">
+            <p class="text-sm text-slate-400 leading-relaxed">Your data lives on Google Cloud in the EU (europe-west1) under GDPR, encrypted in transit with TLS. We never sell personal data. Resume and job text goes to Anthropic’s Claude API for scoring and drafting &mdash; Anthropic does not train on it. Gmail access is read-only and we never send mail from your account. You can export or delete everything at any time. Full detail in our <a href="https://job007.ai/privacy.html" class="text-gold-400 hover:underline">Privacy Policy</a>.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border border-white/5 rounded-xl overflow-hidden bg-white/[0.01] hover:bg-white/[0.02] transition-colors">
+          <h3>
+            <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 text-left cursor-pointer"
+                    aria-expanded="false" aria-controls="faq-answer-11" id="faq-question-11">
+              <span class="text-sm font-medium text-white pr-4">Is there a free trial?</span>
+              <svg class="faq-chevron w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer px-5 pb-5" id="faq-answer-11" role="region" aria-labelledby="faq-question-11">
+            <p class="text-sm text-slate-400 leading-relaxed">Yes &mdash; <strong class="text-slate-200">14 days</strong> on Pro or Executive with nothing held back: unlimited search, auto-apply, the scheduler, every source. Starting it takes a card, you are <strong class="text-slate-200">not charged until day 15</strong>, and you can cancel before then at no cost. Arrive on a friend’s invite link and the trial is 21 days.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1130,7 +1247,7 @@
           <p class="text-sm text-slate-400 mb-6 leading-relaxed flex-1">
             Sign up, upload your resume, and answer the onboarding questions once. Job007 uses those answers for every search, every document and every application form from then on.
           </p>
-          <a href="https://app.job007.ai/register" class="btn-gold flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold tracking-wide">
+          <a href="https://app.job007.ai/register" data-j7-cta="download-step1" class="btn-gold flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold tracking-wide">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             Start Free in Your Browser
           </a>
@@ -1181,12 +1298,12 @@
         Your next career move shouldn't require 40 hours a week of searching, tailoring, and filling forms. Let your AI agent handle it.
       </p>
       <div class="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="https://app.job007.ai/register" class="btn-gold px-10 py-4 rounded-xl text-base font-bold tracking-wide shadow-lg shadow-gold-400/20 flex items-center gap-2">
+        <a href="https://app.job007.ai/register" data-j7-cta="final" class="btn-gold px-10 py-4 rounded-xl text-base font-bold tracking-wide shadow-lg shadow-gold-400/20 flex items-center gap-2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           Start Free in Your Browser
         </a>
       </div>
-      <p class="reveal reveal-delay-4 mt-6 text-xs text-slate-600 font-mono">7 days free &middot; No charge until day&nbsp;8 &middot; Runs in your browser</p>
+      <p class="reveal reveal-delay-4 mt-6 text-xs text-slate-600 font-mono">14 days free &middot; Card to start, no charge until day&nbsp;15 &middot; Cancel in one click</p>
     </div>
   </section>
 
@@ -1300,6 +1417,95 @@
         }
       });
     });
+  </script>
+
+
+  <script>
+    // Live activity feed. Fails silently: a marketing page should never show
+    // a broken widget because an API call didn't come back.
+    (function () {
+      var wrap = document.getElementById('activity');
+      var list = document.getElementById('activity-list');
+      if (!wrap || !list) return;
+
+      function ago(minutes) {
+        if (minutes < 60) return minutes + ' min ago';
+        var hours = Math.round(minutes / 60);
+        if (hours < 24) return hours + (hours === 1 ? ' hour ago' : ' hours ago');
+        var days = Math.round(hours / 24);
+        return days + (days === 1 ? ' day ago' : ' days ago');
+      }
+
+      function row(item) {
+        var li = document.createElement('li');
+        li.className = 'flex items-baseline gap-3 px-4 py-3 text-sm';
+        var main = document.createElement('span');
+        main.className = 'flex-1 min-w-0 truncate text-slate-300';
+        var title = document.createElement('span');
+        title.className = 'text-white';
+        title.textContent = item.title;
+        main.appendChild(title);
+        main.appendChild(document.createTextNode(' · ' + item.company + (item.location ? ' · ' + item.location : '')));
+        var when = document.createElement('span');
+        when.className = 'font-mono text-[11px] text-slate-600 shrink-0';
+        when.textContent = ago(item.minutesAgo);
+        li.appendChild(main);
+        li.appendChild(when);
+        return li;
+      }
+
+      fetch('https://app.job007.ai/api/public/activity')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          var items = (data && data.activity) || [];
+          if (!items.length) return;
+          items.slice(0, 6).forEach(function (item) { list.appendChild(row(item)); });
+          wrap.hidden = false;
+        })
+        .catch(function () { /* stay hidden */ });
+    })();
+  </script>
+
+  <!-- ===================== COOKIE CONSENT ===================== -->
+  <!-- Analytics and ad tags stay unloaded until this is answered. Our own
+       first-party pageview counts a visit with no identifier attached. -->
+  <div id="consent" hidden
+       class="fixed bottom-0 left-0 right-0 z-[100] p-4 sm:p-6"
+       role="dialog" aria-live="polite" aria-label="Cookie preferences">
+    <div class="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-navy-800/95 nav-blur p-5 sm:p-6 shadow-2xl flex flex-col sm:flex-row sm:items-center gap-4">
+      <p class="text-xs sm:text-sm text-slate-400 leading-relaxed flex-1">
+        We use analytics cookies to understand which parts of this page actually help people, and advertising cookies to measure our ads.
+        Decline and we&rsquo;ll count the visit without identifying you.
+        <a href="https://job007.ai/privacy.html" class="text-gold-400 hover:underline">Privacy Policy</a>.
+      </p>
+      <div class="flex items-center gap-3 shrink-0">
+        <button type="button" id="consent-decline"
+                class="px-4 py-2 rounded-lg border border-white/10 text-xs font-semibold text-slate-300 hover:border-white/30 hover:text-white transition-all">
+          Decline
+        </button>
+        <button type="button" id="consent-accept"
+                class="btn-gold px-5 py-2 rounded-lg text-xs font-bold tracking-wide">
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var banner = document.getElementById('consent');
+      if (!banner) return;
+      var decided = null;
+      try { decided = window.localStorage.getItem('j7_consent'); } catch (e) { /* storage blocked */ }
+      if (!decided) banner.hidden = false;
+
+      function choose(value) {
+        banner.hidden = true;
+        if (window.J7) window.J7.setConsent(value);
+      }
+      document.getElementById('consent-accept').addEventListener('click', function () { choose('granted'); });
+      document.getElementById('consent-decline').addEventListener('click', function () { choose('denied'); });
+    })();
   </script>
 
 </body>

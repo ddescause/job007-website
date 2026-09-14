@@ -1,6 +1,6 @@
 /** Tailwind config — mirrors the theme that was previously inline with the CDN build. */
 module.exports = {
-  content: ['./index.html', './privacy.html', './terms.html'],
+  content: ['./index.html', './quiz.html', './privacy.html', './terms.html'],
   theme: {
     extend: {
       colors: {
