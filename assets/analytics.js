@@ -20,7 +20,7 @@
   // corresponding tag simply never loads — the site and our own event
   // pipeline keep working.
   var GA4_ID = 'G-MRFS5104QG';   // job007.ai web stream (GA4 → Admin → Data streams)
-  var META_PIXEL_ID = '';   // e.g. '1234567890'    (Events Manager → Data sources)
+  var META_PIXEL_ID = '1054737697364936';  // Job007 Web dataset (Events Manager → Datasets)
 
   var API = 'https://app.job007.ai/api/events';
   var STORAGE = {
