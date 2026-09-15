@@ -19,7 +19,7 @@
   // Paste the real IDs here once the accounts exist. Left empty, the
   // corresponding tag simply never loads — the site and our own event
   // pipeline keep working.
-  var GA4_ID = '';          // e.g. 'G-XXXXXXXXXX'  (GA4 → Admin → Data streams)
+  var GA4_ID = 'G-MRFS5104QG';   // job007.ai web stream (GA4 → Admin → Data streams)
   var META_PIXEL_ID = '';   // e.g. '1234567890'    (Events Manager → Data sources)
 
   var API = 'https://app.job007.ai/api/events';
