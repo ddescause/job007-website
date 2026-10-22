@@ -208,6 +208,12 @@
       var u = new URL(url, window.location.href);
       var id = anonId();
       if (id) u.searchParams.set('anon_id', id);
+      // Carry the cookie choice too. app.job007.ai is a different origin and
+      // cannot read this one's storage, so without it a visitor who just
+      // answered the banner here is asked again on the signup form — and the
+      // app's pixel never loads for the people most likely to convert.
+      var c = consent();
+      if (c) u.searchParams.set('c', c);
       var attr = attribution();
       ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) {
         if (attr[k]) u.searchParams.set(k, attr[k]);
